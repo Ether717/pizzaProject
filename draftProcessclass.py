@@ -13,7 +13,7 @@ print(calc_item_cost_list(pizza_menu, 1))
 from draftMenuclass import pepperoni, hawaiian
 
 
-def calc_item_cost_manual(menu_item) -> float:
+def calc_item_cost_manual(menu_item) -> float:  
     return menu_item.cost
 
 print(calc_item_cost_manual(hawaiian))
