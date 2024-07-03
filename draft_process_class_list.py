@@ -1,6 +1,6 @@
 from draft_menu_class import pizza_menu
 
-total_cost = 0  # Initialize total_cost to 0
+current_total = 0  # Initialize current_total to 0
 
 """ converts a item object in a menu to a dictionary """
 
@@ -64,8 +64,8 @@ def test_dictionary_for_indices(indices):
 def test_calculate_total_cost():
     # Create a sample dictionary
     sample_dict = {"item1": 10.0, "item2": 20.0, "item3": 30.0}
-    calculate_total_cost(sample_dict, total_cost)
-    print(f"Total cost: ${calculate_total_cost(sample_dict, total_cost):.2f}")
+    add_cost_in_dict(sample_dict, total_cost)
+    print(f"Total cost: ${add_cost_in_dict(sample_dict, total_cost):.2f}")
 
 
 if __name__ == "__main__":
