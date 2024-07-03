@@ -5,7 +5,7 @@ total_cost = 0  # Initialize total_cost to 0
 """ converts a item object in a menu to a dictionary """
 
 
-def get_item_cost(menu_item, menu_item_index) -> float:
+def get_item_price(menu_item, menu_item_index) -> float:
     chosen_item = menu_item[menu_item_index]
     return chosen_item.cost
 
@@ -15,7 +15,7 @@ def get_item_name(menu_item, menu_item_index) -> str:
     return chosen_item.name
 
 
-def item_to_dictionary(name, cost) -> dict:
+def create_item_dictionary(name, cost) -> dict:
     # Create an empty dictionary and add the name and cost to it
     item_dict = {name: cost}
     return item_dict
@@ -25,13 +25,13 @@ def item_to_dictionary(name, cost) -> dict:
 
 
 # prints the key and values of a inputted dictionary
-def print_dictionary(dictionary):
+def print_item_dictionary(dictionary):
     for key, value in dictionary.items():
         print(f"{key}: ${value}")
 
 
 # func to add all the cost inside the dict to a total
-def add_cost_in_dict(dictionary, total_cost) -> float:
+def calculate_total_cost(dictionary, total_cost) -> float:
     for value in dictionary.values():
         total_cost += value
     return total_cost
@@ -44,9 +44,9 @@ def test_indices(indices):
     for index_num in indices:
         name = get_item_name(pizza_menu, index_num)
         print(f"Name: {name}")
-        cost = get_item_cost(pizza_menu, index_num)
+        cost = get_item_price(pizza_menu, index_num)
         print(f"Cost: ${cost}")
-        item_dict = item_to_dictionary(name, cost)
+        item_dict = create_item_dictionary(name, cost)
         print(f"item Dict: {item_dict}")
         print()
 
@@ -55,17 +55,17 @@ def test_indices(indices):
 def test_dictionary_for_indices(indices):
     for index_num in indices:
         name = get_item_name(pizza_menu, index_num)
-        cost = get_item_cost(pizza_menu, index_num)
-        item_dict = item_to_dictionary(name, cost)
-        print_dictionary(item_dict)
+        cost = get_item_price(pizza_menu, index_num)
+        item_dict = create_item_dictionary(name, cost)
+        print_item_dictionary(item_dict)
 
 
 # tests func for add_cost_in_dict using sample data
-def test_add_cost_in_dict():
+def test_calculate_total_cost():
     # Create a sample dictionary
     sample_dict = {"item1": 10.0, "item2": 20.0, "item3": 30.0}
-    add_cost_in_dict(sample_dict, total_cost)
-    print(f"Total cost: ${add_cost_in_dict(sample_dict, total_cost):.2f}")
+    calculate_total_cost(sample_dict, total_cost)
+    print(f"Total cost: ${calculate_total_cost(sample_dict, total_cost):.2f}")
 
 
 if __name__ == "__main__":
@@ -73,14 +73,14 @@ if __name__ == "__main__":
     def test_functions():
         print()
 
-        print("\nTesting get_item_cost and get_item_name functions:")
+        print("\nTesting get_item_price and get_item_name functions:")
         test_indices([0, 1])
 
-        print("\nTesting item_to_dictionary function for multiple values:")
+        print("\nTesting create_item_dictionary function for multiple values:")
         test_dictionary_for_indices([0, 1])
 
-        print("\nTesting add_cost_in_dict function with sample data:")
-        test_add_cost_in_dict()
+        print("\nTesting calculate_total_cost function with sample data:")
+        test_calculate_total_cost()
 
         print()
 
