@@ -21,7 +21,8 @@ def item_to_dictionary(name, cost) -> dict:
     return item_dict
 
 
-""" Gets values out of the item dictionary"""
+""" Gets values out of the item dictionary """
+
 
 # prints the key and values of a inputted dictionary
 def print_dictionary(dictionary):
@@ -64,11 +65,11 @@ def test_add_cost_in_dict():
     # Create a sample dictionary
     sample_dict = {"item1": 10.0, "item2": 20.0, "item3": 30.0}
     add_cost_in_dict(sample_dict, total_cost)
-    print(f"Total cost: ${add_cost_in_dict(sample_dict, total_cost)}")
+    print(f"Total cost: ${add_cost_in_dict(sample_dict, total_cost):.2f}")
 
 
 if __name__ == "__main__":
-    
+
     def test_functions():
         print()
 
@@ -82,6 +83,6 @@ if __name__ == "__main__":
         test_add_cost_in_dict()
 
         print()
-        
+
     # Call the test_functions function to run all the tests
     test_functions()
