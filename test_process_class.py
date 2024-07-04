@@ -1,5 +1,5 @@
 
-from draft_menu_class import pizza_menu   
+from draft_menu_class import menu_list 
 from draft_process_class_v2 import ProcessMenu
 
 def test_process_menu(process_menu):
@@ -53,8 +53,8 @@ def test_process_menu(process_menu):
         print("All tests passed for ProcessMenu class.\n")
         
         
-# parsing the pizza_menu list to create a ProcessMenu object
-process_menu = ProcessMenu(pizza_menu)
+# parsing the menu_list list to create a ProcessMenu object
+process_menu = ProcessMenu(menu_list)
 
 
 # test the ProcessMenu class

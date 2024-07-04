@@ -1,4 +1,4 @@
-from draft_menu_class import pizza_menu
+from draft_menu_class import menu_list
 
 current_total = 0  # Initialize current_total to 0
 
@@ -39,9 +39,11 @@ class ProcessMenu:
             current_total += value
         return current_total
 
+
     def clear_item_dictionary(self):
         """ Clears the item dictionary. """
         self.item_dict.clear()
+
 
 
 if __name__ == "__main__":
@@ -50,7 +52,7 @@ if __name__ == "__main__":
         print("\nTesting ProcessMenu class Outcome:")
         
         # Create an instance of the ProcessMenu class 
-        process_menu = ProcessMenu(pizza_menu)
+        process_menu = ProcessMenu(menu_list)
         
         # Add the first item to the item dictionary
         name = process_menu.get_item_name(0)

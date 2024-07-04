@@ -19,12 +19,12 @@ hawaiian = MenuItem("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
 
 
 # Create a list of menu items for easier management and iteration
-pizza_menu = [pepperoni, hawaiian]
+menu_list = [pepperoni, hawaiian]
 
 
 if __name__ == "__main__":
     # Print each menu item's details
     print()
 
-    for item in pizza_menu:
+    for item in menu_list:
         print(item.print_item())
