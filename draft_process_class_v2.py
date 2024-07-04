@@ -7,6 +7,7 @@ class ProcessMenu:
     
     """Converts a menu item object to a dictionary."""
 
+
     def __init__(self, menu_items: list):
         self.menu_items = menu_items
         self.item_dict = {}
@@ -45,7 +46,6 @@ class ProcessMenu:
         self.item_dict.clear()
 
 
-
 if __name__ == "__main__":
 
     def test_process_menu():
@@ -67,5 +67,5 @@ if __name__ == "__main__":
         
         # Calculate and print the total cost
         print(f"current_total ${process_menu.calculate_total_cost(process_menu.item_dict, current_total):.2f}")
-            
+
     test_process_menu()

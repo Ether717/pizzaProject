@@ -10,7 +10,7 @@ def test_process_menu(process_menu):
         name = process_menu.get_item_name(0)
         price = process_menu.get_item_price(0)
         process_menu.add_to_item_dictionary(name, price)
-
+        
         # Test the get_item_price and get_item_name methods
         try: 
             assert process_menu.get_item_price(0) == 10.99
@@ -32,7 +32,7 @@ def test_process_menu(process_menu):
             # process_menu.print_item_dictionary(process_menu.item_dict) # used to check the dictionary
             
             assert process_menu.item_dict == {'Pepperoni Pizza': 10.99, 'Hawaiian Pizza': 12.99}
-        except Exception as e:
+        except AssertionError:
             print(f"Test failed for print_item_dictionary method: {e}")
         else:
             print("Test passed for print_item_dictionary method")
@@ -42,7 +42,7 @@ def test_process_menu(process_menu):
             current_total = 0
             new_current_total = process_menu.calculate_total_cost(process_menu.item_dict, current_total)
             assert new_current_total == 23.98
-        except Exception as e:
+        except AssertionError:
             print(f"Test failed for calculate_total method: {e}")
         else:
             print("Test passed for calculate_total method")
