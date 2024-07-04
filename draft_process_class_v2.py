@@ -43,14 +43,40 @@ class ProcessMenu:
 if __name__ == "__main__":
 
     def test_process_menu():
-        process_menu = ProcessMenu(pizza_menu)
-        process_menu.get_item_name(0)
-        process_menu.get_item_price(0)
-        process_menu.add_to_item_dictionary(
-            process_menu.get_item_name(0), process_menu.get_item_price(0)
-        )
+        print("\nTesting ProcessMenu class...")
         
+        # Create an instance of the ProcessMenu class 
+        process_menu = ProcessMenu(pizza_menu)
+        
+        # Add the first item to the item dictionary
+        name = process_menu.get_item_name(0)
+        price = process_menu.get_item_price(0)
+        process_menu.add_to_item_dictionary(name, price)
+        
+        # Add the second item to the item dictionary
+        name = process_menu.get_item_name(1)
+        price =process_menu.get_item_price(1)
+        process_menu.add_to_item_dictionary(name, price)
+        
+        # Test the get_item_price and get_item_name methods
+        try: 
+            assert process_menu.get_item_price(0) == 10.99
+            assert process_menu.get_item_name(0) == "Pepperoni Pizza"
+            assert process_menu.item_dict == {"Pepperoni Pizza": 10.99}
+        except AssertionError:
+            print("Test failed")
+        
+        # Print the item dictionary
         process_menu.print_item_dictionary(process_menu.item_dict)
+        
+       
+        # Calculate and print the total cost
         print(f"current_total ${process_menu.calculate_total_cost(process_menu.item_dict, current_total):.2f}")
 
+        # Test the calculate_total_cost method
+        try:
+            assert process_menu.calculate_total_cost(process_menu.item_dict, current_total) == 23.98
+        except AssertionError:
+            print("Test failed")
+            
     test_process_menu()
