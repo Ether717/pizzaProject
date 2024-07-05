@@ -4,7 +4,7 @@
 import unittest
 from draft_menu_class import menu_list
 from draft_process_class_v2 import ProcessMenu
-
+ 
 
 class TestProcessMenu(unittest.TestCase):
 
