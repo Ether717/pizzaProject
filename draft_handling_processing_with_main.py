@@ -24,10 +24,13 @@ class ProcessMenu:
         self.item_dict[name] = cost
         return self.item_dict
     
+    
     # option 2
     def add_to_item_dictionary_function_calling(self, menu_item_index: int) -> dict:
-        name = self.get_item_name(menu_item_index)
-        price = self.get_item_price(menu_item_index)
+        
+        name: str = self.get_item_name(menu_item_index)
+        price: float = self.get_item_price(menu_item_index)
+        
         self.item_dict[name] = price
         return self.item_dict
     
@@ -56,8 +59,8 @@ if __name__  == "__main__":
         
     testing_idea()
     
-    """ After read reading the project goals and Looking online and using ChatGPT as a final measure I've chosen options 2
+    """ After re-reading the project goals and Looking online and using ChatGPT as a final check to make sure I've chosen options 2
     
-        link - https://chatgpt.com/share/3d96476a-0909-4989-abc7-3d3300e1d70e
+        link to chatgpt prompt - https://chatgpt.com/share/3d96476a-0909-4989-abc7-3d3300e1d70e
     """
     
