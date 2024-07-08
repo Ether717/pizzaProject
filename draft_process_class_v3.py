@@ -9,7 +9,7 @@ class ProcessMenu:
     def __init__(self, menu_items: list):
         self.menu_items = menu_items
         self.item_dict = {}
-
+    
     
     def get_item_price(self, menu_item_index: int) -> float:
         chosen_item = self.menu_items[menu_item_index]
@@ -28,10 +28,8 @@ class ProcessMenu:
         price = self.get_item_price(menu_item_index)
 
         if name in self.item_dict:
-            self.item_dict[name] = (
-                price,
-                self.item_dict[name][1] + amount,
-            )  # Adds the amount to the existing item in the dictionary.
+            # Adds the amount to the existing item in the dictionary.
+            self.item_dict[name] = (price, self.item_dict[name][1] + amount)
         else:
             self.item_dict[name] = (price, amount)
 
@@ -39,13 +37,13 @@ class ProcessMenu:
 
     
     def print_item_dictionary(self, dictionary):
-        """Prints the key, values, and quantity for the item_dict."""
+        """Prints the name, price, and quantity for the item_dict."""
         for key, value in dictionary.items():
             print(f"{key}: {value[0]} x {value[1]}")
 
     
     def print_item_dictionary_without_amount(self, dictionary):
-        """Prints the key, values for the item_dict"""
+        """Prints the name, price for the item_dict"""
         for key, value in dictionary.items():
             print(f"{key}: {value[0]}")
 
@@ -99,4 +97,3 @@ if __name__ == "__main__":
 
 
 test_process_multi_input()
-
