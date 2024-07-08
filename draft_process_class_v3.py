@@ -9,7 +9,7 @@ class ProcessMenu:
     def __init__(self, menu_items: list):
         self.menu_items = menu_items
         self.item_dict = {}
-    
+
     
     def get_item_price(self, menu_item_index: int) -> float:
         chosen_item = self.menu_items[menu_item_index]
@@ -22,7 +22,7 @@ class ProcessMenu:
 
     
     def add_to_item_dictionary(self, menu_item_index: int, amount: int = 1) -> dict:
-
+    
         # dict = {name: (price, amount)}
         name = self.get_item_name(menu_item_index)
         price = self.get_item_price(menu_item_index)
