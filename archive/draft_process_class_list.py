@@ -1,4 +1,4 @@
-# the first implementation of the menu Processing with function to handle the menu to convert the item objects in a 2d list to a dictionary
+# the first implementation of the menu Processing with function to handle the menu to convert the item objects in a dictionary
 # first attempt of understanding OOP mutability and how to use it
 # tried to use a testing system to verify results 
 

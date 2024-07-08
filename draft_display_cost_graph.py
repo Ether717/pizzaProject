@@ -6,7 +6,7 @@ ref link - https://www.youtube.com/watch?v=8exB6Ly3nx0
 import matplotlib
 
 matplotlib.use("Agg")  # Use the Agg backend for Matplotlib
-
+ 
 import matplotlib.pyplot as plt
 from tkinter import Tk, Label
 from PIL import Image, ImageTk
@@ -35,7 +35,7 @@ def create_bar_graph(pizzas, quantities_sold):
     
     average_sold = total_sold / len(pizzas)
     ax.text(
-        0.5,
+        0.5, 
         0.90,
         f"Average Pizzas Sold: {average_sold:.2f}",
         transform=ax.transAxes,

@@ -7,7 +7,7 @@ class ProcessMenu:
     
     """Converts a menu item object to a dictionary."""
 
-
+    # Initializes 
     def __init__(self, menu_items: list):
         self.menu_items = menu_items
         self.item_dict = {}
