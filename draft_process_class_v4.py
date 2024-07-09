@@ -3,7 +3,7 @@ from draft_menu_class import menu_list
 # current_total = 0  # Initialize current_total to 0, Used for debugging
 
 
-class ProcessMenu:
+class ProcessOrder:
     """" """
 
     # Initializes
@@ -29,10 +29,9 @@ class ProcessMenu:
 
         if name in self.item_dict:
             # Adds the amount to the existing item in the dictionary.
-            self.item_dict[name] = (price, self.item_dict[name][1] + amount)
+            self.item_dict[name] = [price, self.item_dict[name][1] + amount]
         else:
-            self.item_dict[name] = (price, amount)
-
+            self.item_dict[name] = [price, amount]
         return self.item_dict
 
     def print_item_dictionary(self, dictionary):
@@ -87,7 +86,7 @@ if __name__ == "__main__":
 
         current_total = 0  # Initialize current_total to 0
 
-        process_menu = ProcessMenu(menu_list)
+        process_menu = ProcessOrder(menu_list)
 
         # adding single item to the dictionary
         process_menu.add_to_item_dictionary(0)
@@ -110,5 +109,6 @@ if __name__ == "__main__":
         manual_total_cost = 10.99 + (12.99 * 5)
         print(f"manual_total_cost: ${manual_total_cost}")
 
+    test_process_multi_input()
 
-test_process_multi_input()
+
