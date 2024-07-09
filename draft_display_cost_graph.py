@@ -3,16 +3,15 @@ this is my idea for using tkinter with matplotlib to create a GUI with extra inf
 ref link - https://www.youtube.com/watch?v=8exB6Ly3nx0
 """
 
+import io
+from tkinter import Label, Tk
+
 import matplotlib
+import matplotlib.pyplot as plt
+from PIL import Image, ImageTk
 
 matplotlib.use("Agg")  # Use the Agg backend for Matplotlib
  
-import matplotlib.pyplot as plt
-from tkinter import Tk, Label
-from PIL import Image, ImageTk
-import io
-
-
 def create_bar_graph(pizzas, quantities_sold):
     # Create bar chart using Matplotlib
     fig, ax = plt.subplots()
