@@ -7,7 +7,8 @@ from process_order_class import ProcessOrder
 
 
 class TestProcessMenu(unittest.TestCase):
-
+    """ """
+    
     pepperoni = PizzaMenu(
         "Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
     hawaiian = PizzaMenu(
@@ -16,6 +17,7 @@ class TestProcessMenu(unittest.TestCase):
     process_order = ProcessOrder(menu_list)
 
     def test_get_item_price_and_name(self):
+        """ """
         try:
             name = self.process_order.get_item_name(0)
             price = self.process_order.get_item_price(0)
@@ -26,6 +28,7 @@ class TestProcessMenu(unittest.TestCase):
                 f"Test failed for get_item_price and get_item_name methods: {e}")
 
     def test_add_to_item_dictionary(self):
+        """ """
         try:
             menu_index = 0
             amount = 1
@@ -43,6 +46,7 @@ class TestProcessMenu(unittest.TestCase):
             print(f"Test failed for add_to_item_dictionary method: {e}")
 
     def test_calculate_total_cost(self):
+        """ """
         try:
             menu_index = 1
             amount = 2
