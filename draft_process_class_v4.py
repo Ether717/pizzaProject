@@ -65,7 +65,21 @@ class ProcessMenu:
     # Orders exceeding $100, as well as those made by loyalty card members, are eligible for a 5% discount.
     def apply_discounts_and_fees(self, current_total: float, is_loyalty_member: bool, is_delivery: bool) -> float:
         """" """
-
+        match is_delivery:
+            case True:
+                pass
+            case False:
+                pass
+        
+        match is_loyalty_member:
+            case True:
+                pass
+            case False:
+                pass
+            
+        if current_total >= 100:
+            pass
+        
 
 if __name__ == "__main__":
 
