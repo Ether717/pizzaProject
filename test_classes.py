@@ -2,8 +2,8 @@
 # still in progress
 
 import unittest
-from draft_menu_class import PizzaMenu
-from draft_process_class_v4 import ProcessOrder
+from menu_class import PizzaMenu
+from process_order_class import ProcessOrder
 
 
 class TestProcessMenu(unittest.TestCase):

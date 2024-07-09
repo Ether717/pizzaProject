@@ -1,4 +1,4 @@
-from draft_menu_class import menu_list
+from menu_class import menu_list
 
 # providing a daily summary of the quantities sold for each pizza variety
 

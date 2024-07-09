@@ -1,4 +1,4 @@
-from draft_menu_class import menu_list
+from menu_class import menu_list
 
 class ProcessMenu:
     

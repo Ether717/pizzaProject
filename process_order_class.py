@@ -1,4 +1,4 @@
-from draft_menu_class import menu_list
+from menu_class import menu_list
 
 # current_total = 0  # Initialize current_total to 0, Used for debugging
 

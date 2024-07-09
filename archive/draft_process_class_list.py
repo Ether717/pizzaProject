@@ -2,7 +2,7 @@
 # first attempt of understanding OOP mutability and how to use it
 # tried to use a testing system to verify results 
 
-from draft_menu_class import pizza_menu
+from menu_class import pizza_menu
 
 current_total = 0  # Initialize current_total to 0
 

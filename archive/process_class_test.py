@@ -1,5 +1,5 @@
 
-from draft_menu_class import menu_list 
+from menu_class import menu_list 
 from draft_process_class_v2 import ProcessMenu
 
 def test_process_menu(process_menu):
