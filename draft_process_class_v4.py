@@ -67,6 +67,11 @@ class ProcessMenu:
         self.item_dict.clear()
 
 
+    # For home delivery – a delivery fee of $8.00 is added to the final bill.
+    # Orders exceeding $100, as well as those made by loyalty card members, are eligible for a 5% discount.
+    def apply_discount(self, current_total: float, is_loyalty_member: bool, is_delivery: bool) -> float:
+        pass
+
 if __name__ == "__main__":
 
     def test_process_multi_input():
