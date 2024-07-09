@@ -3,7 +3,7 @@ from menu_class import menu_list
 # providing a daily summary of the quantities sold for each pizza variety
 
 class Summary():
-    """" """
+    """ """
     
     # constructor
     def __init__(self,menu_list, order_receipt_list):
