@@ -1,5 +1,6 @@
 # Abstract class representing a menu item
 class MenuItem:
+    """" """
 
     # Constructor method
     def __init__(self, name: str, description: str, cost: float) -> None:
@@ -10,6 +11,7 @@ class MenuItem:
 
     # Method to print the details of the menu item
     def print_item(self) -> str:
+        """" """
         return f"Name: {self.name}\nDescription: {self.description}\nCost: ${self.cost:.2f}\n"
 
 
