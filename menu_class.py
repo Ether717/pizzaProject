@@ -33,8 +33,8 @@ class DrinksMenu(PizzaMenu):
 
 
 # Create menu items for Debugging
-pepperoni = MenuItem("Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
-hawaiian = MenuItem("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
+pepperoni = PizzaMenu("Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
+hawaiian = PizzaMenu("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
 
 
 # Create a list of menu items for Debugging

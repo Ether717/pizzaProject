@@ -6,8 +6,8 @@ from menu_class import PizzaMenu
 from process_order_class import ProcessOrder
 
 
-class TestProcessMenu(unittest.TestCase):
-    """ """
+class TestProcessOrder(unittest.TestCase):
+    """Unit tests for the ProcessOrder class."""
     
     pepperoni = PizzaMenu(
         "Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
@@ -17,7 +17,7 @@ class TestProcessMenu(unittest.TestCase):
     process_order = ProcessOrder(menu_list)
 
     def test_get_item_price_and_name(self):
-        """ """
+        """Test getting the price and name of a menu item."""
         try:
             name = self.process_order.get_item_name(0)
             price = self.process_order.get_item_price(0)
@@ -28,7 +28,7 @@ class TestProcessMenu(unittest.TestCase):
                 f"Test failed for get_item_price and get_item_name methods: {e}")
 
     def test_add_to_item_dictionary(self):
-        """ """
+        """Test adding items to the item dictionary."""
         try:
             menu_index = 0
             amount = 1
@@ -46,7 +46,7 @@ class TestProcessMenu(unittest.TestCase):
             print(f"Test failed for add_to_item_dictionary method: {e}")
 
     def test_calculate_total_cost(self):
-        """ """
+        """Test calculating the total cost of items in the item dictionary."""
         try:
             menu_index = 1
             amount = 2
@@ -62,6 +62,7 @@ class TestProcessMenu(unittest.TestCase):
             self.process_order.clear_item_dictionary()
 
     def tearDown(self):
+        """Clear the item dictionary"""
         # Clear the item dictionary after each test to ensure test isolation
         self.process_order.clear_item_dictionary()
 
