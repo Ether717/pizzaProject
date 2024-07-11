@@ -11,7 +11,8 @@ import matplotlib.pyplot as plt
 from PIL import Image, ImageTk
 
 matplotlib.use("Agg")  # Use the Agg backend for Matplotlib
- 
+
+
 def create_bar_graph(pizzas, quantities_sold):
     # Create bar chart using Matplotlib
     fig, ax = plt.subplots()
@@ -31,16 +32,16 @@ def create_bar_graph(pizzas, quantities_sold):
         transform=ax.transAxes,
         ha="center",
     )
-    
+
     average_sold = total_sold / len(pizzas)
     ax.text(
-        0.5, 
+        0.5,
         0.90,
         f"Average Pizzas Sold: {average_sold:.2f}",
         transform=ax.transAxes,
         ha="center",
     )
-    
+
     best_seller = pizzas[quantities_sold.index(max(quantities_sold))]
     ax.text(
         0.5, 0.85, f"Best Seller: {best_seller}", transform=ax.transAxes, ha="center"
@@ -77,8 +78,8 @@ def display_chart_in_tkinter_window(fig):
 
 
 if __name__ == "__main__":
-    # Sample data 
-    pizzas = [
+    # Sample data
+    pizzas_list = [
         "Precious Pepperoni",
         "Supreme Chicken of Gondor",
         "Bag-End BBQ Meatlovers",
@@ -86,8 +87,8 @@ if __name__ == "__main__":
         "Bree Ham & Pineapple",
         "Leaf of Lorien Margherita",
     ]
-    
-    quantities_sold = [1, 5, 2, 0, 0, 3]
 
-    fig = create_bar_graph(pizzas, quantities_sold)
-    display_chart_in_tkinter_window(fig)
+    pizza_quantities_sold = [1, 5, 2, 0, 0, 3]
+
+    pizza_fig = create_bar_graph(pizzas_list, pizza_quantities_sold)
+    display_chart_in_tkinter_window(pizza_fig)

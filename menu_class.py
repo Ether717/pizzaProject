@@ -25,10 +25,10 @@ class DrinksMenu(PizzaMenu):
     """ Class representing a drinks menu item, extending the PizzaMenu class """
     # Method
 
-    def check_if_caffeinated(self) -> bool:
+    def check_if_caffeinated(self):
         """ Check if the drink is caffeinated """
-
-    def check_if_alcoholic(self) -> bool:
+    
+    def check_if_alcoholic(self):
         """ Check if the drink is alcoholic """
 
 

@@ -2,14 +2,13 @@ from menu_class import menu_list
 
 # current_total = 0  # Initialize current_total to 0, Used for debugging
 
-
 class ProcessOrder:
     """ """
 
     # Initializes
     def __init__(self, menu_items: list):
         self.menu_items = menu_items
-        self.item_dict = {}
+        self.item_dict: dict = {}
 
 
     def get_item_price(self, menu_item_index: int) -> float:
