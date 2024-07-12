@@ -59,6 +59,7 @@ class ProcessOrder:
 
     def calculate_total_cost_with_amount(self, dictionary, current_total: float) -> float:
         """ Calculates the total cost of all items in the dictionary """
+        
         for value in dictionary.values():
             current_total += value[0] * value[1]
         return current_total
