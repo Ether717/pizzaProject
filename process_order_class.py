@@ -35,7 +35,6 @@ class ProcessOrder:
             self.item_dict[name] = [price, self.item_dict[name][1] + amount]
         else:
             self.item_dict[name] = [price, amount]
-            
         return self.item_dict
 
 
