@@ -1,3 +1,4 @@
+
 from menu_class import menu_list
 
 # current_total = 0  # Initialize current_total to 0, Used for debugging
@@ -34,6 +35,7 @@ class ProcessOrder:
             self.item_dict[name] = [price, self.item_dict[name][1] + amount]
         else:
             self.item_dict[name] = [price, amount]
+            
         return self.item_dict
 
 

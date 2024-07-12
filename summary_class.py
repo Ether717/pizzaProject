@@ -4,6 +4,7 @@ from menu_class import menu_list as menu
 # providing a daily summary of the quantities sold for each pizza variety
 
 class Summary():
+
     """ """
 
     # constructor

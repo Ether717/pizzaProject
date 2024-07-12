@@ -23,8 +23,8 @@ class PizzaMenu(MenuItem):
 # This is an example of a extension of the menu class Which could be implemented With greater scope of the project
 class DrinksMenu(PizzaMenu):
     """ Class representing a drinks menu item, extending the PizzaMenu class """
-    # Method
-
+    # Methods
+    
     def check_if_caffeinated(self):
         """ Check if the drink is caffeinated """
     
