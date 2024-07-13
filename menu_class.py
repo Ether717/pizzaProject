@@ -17,7 +17,7 @@ class PizzaMenu(MenuItem):
 
     # This item is used as the debugging to check if Constructor method is working
     def print_item(self) -> str:
-        """ """
+        """prints the info in the object used for debugging"""
         return f"Name: {self.name}\nDescription: {self.description}\nCost: ${self.cost:.2f}\n"
 
 
@@ -35,16 +35,15 @@ class DrinksMenu(PizzaMenu):
 
 
 # Create menu items for Debugging
-pepperoni = PizzaMenu("Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
-hawaiian = PizzaMenu("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
+# pepperoni = PizzaMenu("Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
+# hawaiian = PizzaMenu("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
 
 
 # Create a list of menu items for Debugging
-menu_list = [pepperoni, hawaiian]
+# menu_list = [pepperoni, hawaiian]
 
-if __name__ == "__main__":
-    # Print each menu item's details
-    print()
+# Print each menu item's details
+# print()
 
-    for item in menu_list:
-        print(item.print_item())
+# for item in menu_list:
+#     print(item.print_item())
