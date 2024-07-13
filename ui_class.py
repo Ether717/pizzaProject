@@ -49,6 +49,28 @@ class UiMenu:
 
         print(f"\nTotal Cost: ${total_cost:.2f}")
 
+    def continue_order(self) -> bool:
+        """ Prompts the user to continue ordering and returns True if they choose to continue, False otherwise """
+        continue_order = input("Do you want to add more items? (yes/no): ")
+        if continue_order.lower() == "yes":
+            return True
+        elif continue_order.lower() == "no":
+            return False
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
+            return self.continue_order()
+        
+    def choose_amount(self) -> int:
+        """ Prompts the user to enter the quantity of the chosen menu item and returns the quantity """
+        while True:
+            try:
+                quantity = int(input("Enter the quantity: "))
+                if quantity > 0:
+                    return quantity
+                else:
+                    print("Invalid quantity. Please enter a positive number.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
 
 def main():
 
