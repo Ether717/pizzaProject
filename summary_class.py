@@ -1,15 +1,11 @@
 class Summary:
     """A class to provide a daily summary of the quantities sold for each pizza variety"""
 
-    # constructor
     def __init__(self, order_receipt_list: list, menu_list: list):
-        # order_receipt_list is a list with objects inside to call methods
         self.order_receipt_list = order_receipt_list
         self.menu_list = menu_list
-        # daily_summary is a dictionary with pizza names as keys and quantities as values
         self.daily_summary: dict = {}
 
-    # methods
     def create_daily_summary(self):
         """Creates the daily summary by aggregating all orders"""
         # Initialize daily_summary with all menu items set to 0
@@ -17,15 +13,13 @@ class Summary:
             self.daily_summary[menu_item.name] = 0
 
         # Iterate through all order receipts
-        for order_list in self.order_receipt_list:
-            for order in order_list:
-                for pizza_name, (_, quantity) in order.items():
-                    if pizza_name in self.daily_summary:
-                        self.daily_summary[pizza_name] += quantity
-
-                    else:
-                        # Handle case where pizza is not in menu but was ordered
-                        self.daily_summary[pizza_name] = quantity
+        for order in self.order_receipt_list:
+            for pizza_name, [_, quantity] in order.items():
+                if pizza_name in self.daily_summary:
+                    self.daily_summary[pizza_name] += quantity
+                else:
+                    # Handle case where pizza is not in menu but was ordered
+                    self.daily_summary[pizza_name] = quantity
 
     def print_daily_summary(self):
         """prints the daily summary"""
@@ -56,17 +50,19 @@ if __name__ == "__main__":
         ]
 
         # create a list of order receipts
-        # order receipts = [[{name: (price, amount)}, ...], ...]
+        # order receipts = [[{name: [price, amount]}, ...], ...]
         sample_data = [
-            {"Precious Pepperoni": (21.00, 2), "Bree Ham & Pineapple": (19.00, 1)},
-            {"Fellowship of the Four Cheeses": (22.50, 3), "Leaf of Lorien Margherita": (18.50, 2)},
-            {"Bag-End BBQ Meatlovers": (25.50, 1), "Supreme Chicken of Gondor": (23.50, 2)},
-            {"Precious Pepperoni": (21.00, 1), "Fellowship of the Four Cheeses": (22.50, 1)},
+            {"Precious Pepperoni": [21.00, 2], "Bree Ham & Pineapple": [19.00, 1]},
+            {"Fellowship of the Four Cheeses": [22.50, 3], "Leaf of Lorien Margherita": [18.50, 2]},
+            {"Bag-End BBQ Meatlovers": [25.50, 1], "Supreme Chicken of Gondor": [23.50, 2]},
+            {"Precious Pepperoni": [21.00, 1], "Fellowship of the Four Cheeses": [22.50, 1]},
         ]
+
         sample_data_2 = [
-            {"Precious Pepperoni": (21.00, 1), "Bree Ham & Pineapple": (19.00, 1)},
-            {"Fellowship of the Four Cheeses": (22.50, 3), "Leaf of Lorien Margherita": (18.50, 2)},
+            {"Precious Pepperoni": [21.00, 1], "Bree Ham & Pineapple": [19.00, 1]},
+            {"Fellowship of the Four Cheeses": [22.50, 3], "Leaf of Lorien Margherita": [18.50, 2]},
         ]
+
         order_receipts = [sample_data, sample_data_2]
 
         summary = Summary(order_receipts, menu_list)
