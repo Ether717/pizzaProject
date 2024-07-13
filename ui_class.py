@@ -1,7 +1,3 @@
-from menu_class import menu_list
-from process_order_class import ProcessOrder
-
-
 class UiMenu:
     """This class represents the Command Line Interface (CLI) for the menu"""
 
@@ -31,6 +27,7 @@ class UiMenu:
                     print("Invalid choice. Please try again.")
 
             except ValueError:
+                # handle the case where the input is not a valid integer
                 print("Invalid input. Please enter a number.")
 
     def display_order_summary(self, order_dict):
@@ -98,13 +95,3 @@ class UiMenu:
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
             return self.check_delivery_option()
-
-
-def main():
-    process_menu = ProcessOrder(menu_list)
-    ui_menu = UiMenu(menu_list)
-    ui_menu.display_menu()
-
-
-if __name__ == "__main__":
-    main()

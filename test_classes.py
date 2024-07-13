@@ -12,11 +12,13 @@ class TestProcessOrder(unittest.TestCase):
     # Set up the test environment before each test method is run.
     pepperoni = PizzaMenu("Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
     hawaiian = PizzaMenu("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
+
     menu_list = [pepperoni, hawaiian]
     process_order = ProcessOrder(menu_list)
 
     def test_get_item_price_and_name(self):
         """Test getting the price and name of a menu item"""
+
         name = self.process_order.get_item_name(0)
         price = self.process_order.get_item_price(0)
         self.assertEqual(price, 10.99)

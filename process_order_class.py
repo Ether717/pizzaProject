@@ -1,5 +1,3 @@
-from menu_class import menu_list
-
 # current_total = 0  # Initialize current_total to 0, Used for debugging
 
 
@@ -92,6 +90,7 @@ if __name__ == "__main__":
 
     def test_process_multi_input():
         """Test function to process multiple inputs and validate the ProcessOrder class"""
+        from main import menu_list
 
         current_total = 0  # Initialize current_total to 0
 
