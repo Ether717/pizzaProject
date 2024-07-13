@@ -95,3 +95,15 @@ class UiMenu:
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
             return self.check_delivery_option()
+
+    def another_order(self) -> bool:
+        """prompts the user to enter if they want to make another order and returns True if they do, False otherwise"""
+
+        input_another_order = input("Do you want to make another order? (yes/no): ")
+        if input_another_order.lower() == "yes":
+            return True
+        elif input_another_order.lower() == "no":
+            return False
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
+            return self.another_order()
