@@ -70,6 +70,35 @@ class UiMenu:
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
+    def display_thank_you_message(self):
+        """Displays a thank you message to the user"""
+
+        print("Thank you for your order!")
+
+    def check_loyalty_member(self) -> bool:
+        """ " Prompts the user to enter if they are a loyalty member and returns True if they are, False otherwise"""
+
+        input_loyalty = input("Are you a loyalty member? (yes/no): ")
+        if input_loyalty.lower() == "yes":
+            return True
+        elif input_loyalty.lower() == "no":
+            return False
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
+            return self.check_loyalty_member()
+
+    def check_delivery_option(self) -> bool:
+        """prompts the user to enter if they want delivery and returns True if they do, False otherwise"""
+
+        input_delivery = input("Do you want delivery? (yes/no): ")
+        if input_delivery.lower() == "yes":
+            return True
+        elif input_delivery.lower() == "no":
+            return False
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
+            return self.check_delivery_option()
+
 
 def main():
     process_menu = ProcessOrder(menu_list)
