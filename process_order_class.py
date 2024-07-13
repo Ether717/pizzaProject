@@ -80,6 +80,13 @@ class ProcessOrder:
 
         return current_total
 
+    # The total bill amount should include a Goods and Services Tax (GST) calculated at 10%
+    # of the amount after applying any discounts and surcharges.
+    def apply_gst(self, current_total: float) -> float:
+        """Applies GST to the current total"""
+
+        return current_total * 1.10
+
 
 if __name__ == "__main__":
 
