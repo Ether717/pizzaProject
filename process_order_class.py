@@ -14,18 +14,21 @@ class ProcessOrder:
 
     def get_item_price(self, menu_item_index: int) -> float:
         """ Gets the price of the item at the given index in the menu """
+        
         chosen_item = self.menu_items[menu_item_index]
         return chosen_item.cost
 
 
     def get_item_name(self, menu_item_index: int) -> str:
         """ Gets the name of the item at the given index in the menu """
+        
         chosen_item = self.menu_items[menu_item_index]
         return chosen_item.name
 
 
     def add_to_item_dictionary(self, menu_item_index: int, amount: int = 1) -> dict:
         """ Adds the item at the given index to the dictionary with the specified amount """
+        
         # dict = {name: (price, amount)}
         name = self.get_item_name(menu_item_index)
         price = self.get_item_price(menu_item_index)
@@ -40,18 +43,21 @@ class ProcessOrder:
 
     def print_item_dictionary(self, dictionary):
         """ Prints the name, price, and quantity for the item_dict """
+        
         for key, value in dictionary.items():
             print(f"{key}: {value[0]} x {value[1]}")
 
 
     def print_item_dictionary_without_amount(self, dictionary):
         """ Prints the name, price for the item_dict """
+        
         for key, value in dictionary.items():
             print(f"{key}: {value[0]}")
 
 
     def calculate_total_cost(self, dictionary, current_total: float) -> float:
         """ Calculates the total cost of all items in the dictionary """
+        
         for value in dictionary.values():
             current_total += value
         return current_total
