@@ -8,7 +8,7 @@ from process_order_class import ProcessOrder
 
 class TestProcessOrder(unittest.TestCase):
     """Unit tests for the ProcessOrder class"""
-    
+
     # Set up the test environment before each test method is run.
     pepperoni = PizzaMenu("Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
     hawaiian = PizzaMenu("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
