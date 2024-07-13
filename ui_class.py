@@ -3,15 +3,14 @@ from process_order_class import ProcessOrder
 
 
 class UiMenu:
-    """ This class represents the Command Line Interface (CLI) for the menu """
+    """This class represents the Command Line Interface (CLI) for the menu"""
 
     def __init__(self, menu_items: list):
-        """ Initializes the UiMenu class with a list of menu items """
+        """Initializes the UiMenu class with a list of menu items"""
         self.menu_items = menu_items
 
-
     def display_menu(self):
-        """ Displays the menu items with their names and prices """
+        """Displays the menu items with their names and prices"""
 
         # goes each individual item in the list and prints the name and cost of the item
         index = 1
@@ -19,9 +18,8 @@ class UiMenu:
             print(f"{index}. {item.name} - ${item.cost:.2f}")
             index += 1
 
-
-    def get_user_choice(self):
-        """ Prompts the user to enter their choice and returns the index of the chosen menu item """
+    def get_user_choice(self) -> int:
+        """Prompts the user to enter their choice and returns the index of the chosen menu item"""
 
         while True:
             try:
@@ -35,22 +33,21 @@ class UiMenu:
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
-
     def display_order_summary(self, order_dict):
-        """ Displays the order summary with the names, prices, and quantities of the ordered items """
+        """Displays the order summary with the names, prices, and quantities of the ordered items"""
 
         print("\nOrder Summary:")
         for name, (price, quantity) in order_dict.items():
             print(f"{name} - ${price:.2f} x {quantity}")
 
-
     def display_total_cost(self, total_cost):
-        """ Displays the total cost of the order """
+        """Displays the total cost of the order"""
 
         print(f"\nTotal Cost: ${total_cost:.2f}")
 
     def continue_order(self) -> bool:
-        """ Prompts the user to continue ordering and returns True if they choose to continue, False otherwise """
+        """Prompts the user to continue ordering and returns True if they choose to continue, False otherwise"""
+
         continue_order = input("Do you want to add more items? (yes/no): ")
         if continue_order.lower() == "yes":
             return True
@@ -59,9 +56,10 @@ class UiMenu:
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
             return self.continue_order()
-        
+
     def choose_amount(self) -> int:
-        """ Prompts the user to enter the quantity of the chosen menu item and returns the quantity """
+        """Prompts the user to enter the quantity of the chosen menu item and returns the quantity"""
+
         while True:
             try:
                 quantity = int(input("Enter the quantity: "))
@@ -72,14 +70,12 @@ class UiMenu:
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
-def main():
 
+def main():
     process_menu = ProcessOrder(menu_list)
     ui_menu = UiMenu(menu_list)
-    ui_menu.display_menu()  
-    
-   
-    
+    ui_menu.display_menu()
+
 
 if __name__ == "__main__":
     main()
