@@ -40,6 +40,7 @@ def main():
     ui_menu = UiMenu(menu_list)
 
     while True:
+        print()
         ui_menu.display_menu()
         choice = ui_menu.get_user_choice()
         amount = ui_menu.choose_amount()
