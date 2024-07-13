@@ -1,6 +1,8 @@
+from typing import List
 from ui_class import UiMenu
 from menu_class import PizzaMenu, DrinksMenu
 from process_order_class import ProcessOrder
+from summary_class import Summary
 
 
 def create_menu_list():
@@ -36,36 +38,52 @@ menu_list = create_menu_list()
 
 
 def main():
+    order_receipts: List[dict] = []
     process_menu = ProcessOrder(menu_list)
     ui_menu = UiMenu(menu_list)
-
+    
+    
     while True:
+        
+        process_menu.clear_item_dictionary()
+        
+        while True:
+            print()
+            ui_menu.display_menu()
+            choice = ui_menu.get_user_choice()
+            amount = ui_menu.choose_amount()
+            process_menu.add_to_item_dictionary(choice, amount)
+            
+            # Ask if the user wants to continue ordering
+            continue_order = ui_menu.continue_order()
+            if not continue_order:
+                break
+        
+        ui_menu.display_order_summary(process_menu.item_dict)
+        total_cost = process_menu.calculate_total_cost_with_amount(process_menu.item_dict, 0)
+        
         print()
-        ui_menu.display_menu()
-        choice = ui_menu.get_user_choice()
-        amount = ui_menu.choose_amount()
-        process_menu.add_to_item_dictionary(choice, amount)
-
-        # Ask if the user wants to continue ordering
-        continue_order = ui_menu.continue_order()
-        if not continue_order:
+        
+        member = ui_menu.check_loyalty_member()
+        delivery = ui_menu.check_delivery_option()
+        
+        total_cost_plus_discount_and_fees = process_menu.apply_discounts_and_fees(total_cost, member, delivery)
+        total_cost_plus_gst = process_menu.apply_gst(total_cost_plus_discount_and_fees)
+        
+        ui_menu.display_total_cost(total_cost_plus_gst)
+        ui_menu.display_thank_you_message()
+        
+        # Add current order to order_receipts list
+        order_receipts.append(process_menu.item_dict.copy())
+        
+        # Ask if the user wants to process another order
+        another_order = ui_menu.another_order()
+        if not another_order:
             break
 
-    ui_menu.display_order_summary(process_menu.item_dict)
-    total_cost = process_menu.calculate_total_cost_with_amount(process_menu.item_dict, 0)
-
-    print()
-    member = ui_menu.check_loyalty_member()
-    delivery = ui_menu.check_delivery_option()
-
-    total_cost_plus_discount_and_fees = process_menu.apply_discounts_and_fees(total_cost, member, delivery)
-    total_cost_plus_gst = process_menu.apply_gst(total_cost_plus_discount_and_fees)
-    ui_menu.display_total_cost(total_cost_plus_gst)
-    ui_menu.display_thank_you_message()
-
-    # Clear the item dictionary for the next order
-    process_menu.clear_item_dictionary()
-
+    summary = Summary(order_receipts, menu_list)
+    summary.create_daily_summary()
+    summary.print_daily_summary()
 
 if __name__ == "__main__":
     main()
