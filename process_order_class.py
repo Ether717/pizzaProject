@@ -35,18 +35,6 @@ class ProcessOrder:
             self.item_dict[name] = [price, amount]
         return self.item_dict
 
-    def print_item_dictionary(self, dictionary):
-        """Prints the name, price, and quantity for the item_dict"""
-
-        for key, value in dictionary.items():
-            print(f"{key}: {value[0]} x {value[1]}")
-
-    def print_item_dictionary_without_amount(self, dictionary):
-        """Prints the name, price for the item_dict"""
-
-        for key, value in dictionary.items():
-            print(f"{key}: {value[0]}")
-
     def calculate_total_cost(self, dictionary, current_total: float) -> float:
         """Calculates the total cost of all items in the dictionary"""
 
@@ -84,6 +72,18 @@ class ProcessOrder:
         """Applies GST to the current total"""
 
         return current_total * 1.10
+
+    def print_item_dictionary(self, dictionary):  # used for debugging
+        """Prints the name, price, and quantity for the item_dict"""
+
+        for key, value in dictionary.items():
+            print(f"{key}: {value[0]} x {value[1]}")
+
+    def print_item_dictionary_without_amount(self, dictionary):  # used for debugging
+        """Prints the name, price for the item_dict"""
+
+        for key, value in dictionary.items():
+            print(f"{key}: {value[0]}")
 
 
 if __name__ == "__main__":
