@@ -41,6 +41,7 @@ class TestProcessOrder(unittest.TestCase):
 
     def test_calculate_total_cost(self):
         """Test calculating the total cost of items in the item dictionary"""
+
         # makes sure the item.dict is clean
         self.process_order.clear_item_dictionary()
 
@@ -56,6 +57,77 @@ class TestProcessOrder(unittest.TestCase):
 
         # Checking if the calculated total cost matches the manually calculated total cost
         self.assertEqual(total_cost, manual_total_cost)
+
+    def test_add_to_item_dictionary_new_and_existing(self):
+        """Test adding new and existing items to the item dictionary"""
+        # Clear the dictionary before starting the test
+        self.process_order.clear_item_dictionary()
+
+        # Test adding a new item
+        result = self.process_order.add_to_item_dictionary(0, 2)
+        self.assertEqual(result, {"Pepperoni Pizza": [10.99, 2]})
+        self.assertEqual(self.process_order.item_dict, {"Pepperoni Pizza": [10.99, 2]})
+
+        # Test adding more of an existing item
+        result = self.process_order.add_to_item_dictionary(0, 3)
+        self.assertEqual(result, {"Pepperoni Pizza": [10.99, 5]})
+        self.assertEqual(self.process_order.item_dict, {"Pepperoni Pizza": [10.99, 5]})
+
+        # Test adding a different item
+        result = self.process_order.add_to_item_dictionary(1, 2)
+        expected_result = {"Pepperoni Pizza": [10.99, 5], "Hawaiian Pizza": [12.99, 2]}
+        self.assertEqual(result, expected_result)
+        self.assertEqual(self.process_order.item_dict, expected_result)
+
+    def test_apply_discounts_and_fees(self):
+        """Test applying discounts and fees based on various conditions"""
+
+        # Test case 1: No discount, no delivery
+        total = self.process_order.apply_discounts_and_fees(50.00, False, False)
+        self.assertAlmostEqual(total, 50.00, places=2)
+
+        # Test case 2: Discount due to order over $100, no delivery
+        total = self.process_order.apply_discounts_and_fees(120.00, False, False)
+        self.assertAlmostEqual(total, 114.00, places=2)  # 120 * 0.95 = 114
+
+        # Test case 3: Discount due to loyalty, no delivery
+        total = self.process_order.apply_discounts_and_fees(80.00, True, False)
+        self.assertAlmostEqual(total, 76.00, places=2)  # 80 * 0.95 = 76
+
+        # Test case 4: No discount, with delivery
+        total = self.process_order.apply_discounts_and_fees(50.00, False, True)
+        self.assertAlmostEqual(total, 58.00, places=2)  # 50 + 8 = 58
+
+        # Test case 5: Discount due to order over $100, with delivery
+        total = self.process_order.apply_discounts_and_fees(120.00, False, True)
+        self.assertAlmostEqual(total, 122.00, places=2)  # (120 * 0.95) + 8 = 122
+
+        # Test case 6: Discount due to loyalty, with delivery
+        total = self.process_order.apply_discounts_and_fees(80.00, True, True)
+        self.assertAlmostEqual(total, 84.00, places=2)  # (80 * 0.95) + 8 = 84
+
+    def test_apply_gst(self):
+        """Test applying GST to various totals"""
+
+        # Test case 1: Apply GST to 0
+        total = self.process_order.apply_gst(0.00)
+        self.assertAlmostEqual(total, 0.00, places=2)
+
+        # Test case 2: Apply GST to a whole number
+        total = self.process_order.apply_gst(100.00)
+        self.assertAlmostEqual(total, 110.00, places=2)
+
+        # Test case 3: Apply GST to a decimal number
+        total = self.process_order.apply_gst(75.50)
+        self.assertAlmostEqual(total, 83.05, places=2)
+
+        # Test case 4: Apply GST to a large number
+        total = self.process_order.apply_gst(1000.00)
+        self.assertAlmostEqual(total, 1100.00, places=2)
+
+        # Test case 5: Apply GST to a small decimal
+        total = self.process_order.apply_gst(0.99)
+        self.assertAlmostEqual(total, 1.09, places=2)
 
 
 if __name__ == "__main__":
