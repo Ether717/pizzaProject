@@ -11,7 +11,7 @@ pylint: # checks for errors and bad practices
 ruff:
 	ruff check main.py menu_class.py process_order_class.py summary_class.py test_classes.py ui_class.py
 fix:
-	ruff --fix main.py menu_class.py process_order_class.py summary_class.py test_classes.py ui_class.py
+	ruff check --fix main.py menu_class.py process_order_class.py summary_class.py test_classes.py ui_class.py
 coverage: # checks code coverage
 	coverage run -m unittest discover
 	coverage report
@@ -33,5 +33,5 @@ clean: # cleans temporary files
 # combined commands 
 check: format mypy unittest 
 
-full: format mypy unittest pylint # does a full check of code using linting, formatting, type checking, and unit testing
+full: format mypy unittest fix pylint # does a full check of code using linting, formatting, type checking, and unit testing
 
