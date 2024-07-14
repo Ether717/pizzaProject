@@ -14,6 +14,17 @@ class UiMenu:
             print(f"{index}. {item.name} - ${item.cost:.2f}")
             index += 1
 
+    def get_yes_no_input(self, prompt: str) -> bool:
+        """Prompts the user with a yes/no question and returns True if they choose 'yes', False otherwise"""
+        while True:
+            user_input = input(f"{prompt} (yes/no): ").strip().lower()
+            if user_input == "yes":
+                return True
+            elif user_input == "no":
+                return False
+            else:
+                print("Invalid input. Please enter 'yes' or 'no'.")
+
     def get_user_choice(self) -> int:
         """Prompts the user to enter their choice and returns the index of the chosen menu item"""
 
@@ -43,16 +54,8 @@ class UiMenu:
         print(f"\nTotal Cost: ${total_cost:.2f}")
 
     def continue_order(self) -> bool:
-        """Prompts the user to continue ordering and returns True if they choose to continue, False otherwise"""
-
-        continue_order = input("Do you want to add more items? (yes/no): ")
-        if continue_order.lower() == "yes":
-            return True
-        elif continue_order.lower() == "no":
-            return False
-        else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
-            return self.continue_order()
+        """Prompts the user to continue ordering"""
+        return self.get_yes_no_input("Do you want to add more items?")
 
     def choose_amount(self) -> int:
         """Prompts the user to enter the quantity of the chosen menu item and returns the quantity"""
@@ -73,37 +76,13 @@ class UiMenu:
         print("Thank you for your order!")
 
     def check_loyalty_member(self) -> bool:
-        """ " Prompts the user to enter if they are a loyalty member and returns True if they are, False otherwise"""
-
-        input_loyalty = input("Are you a loyalty member? (yes/no): ")
-        if input_loyalty.lower() == "yes":
-            return True
-        elif input_loyalty.lower() == "no":
-            return False
-        else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
-            return self.check_loyalty_member()
+        """Prompts the user to enter if they are a loyalty member"""
+        return self.get_yes_no_input("Are you a loyalty member?")
 
     def check_delivery_option(self) -> bool:
-        """prompts the user to enter if they want delivery and returns True if they do, False otherwise"""
-
-        input_delivery = input("Do you want delivery? (yes/no): ")
-        if input_delivery.lower() == "yes":
-            return True
-        elif input_delivery.lower() == "no":
-            return False
-        else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
-            return self.check_delivery_option()
+        """Prompts the user to enter if they want delivery"""
+        return self.get_yes_no_input("Do you want delivery?")
 
     def another_order(self) -> bool:
-        """prompts the user to enter if they want to make another order and returns True if they do, False otherwise"""
-
-        input_another_order = input("Do you want to make another order? (yes/no): ")
-        if input_another_order.lower() == "yes":
-            return True
-        elif input_another_order.lower() == "no":
-            return False
-        else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
-            return self.another_order()
+        """Prompts the user to enter if they want to make another order"""
+        return self.get_yes_no_input("Do you want to make another order?")
