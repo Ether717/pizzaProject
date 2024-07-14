@@ -31,23 +31,23 @@ if __name__ == "__main__":
 
     def test_summary():
         # create a list of menu items
-        from menu_class import PizzaMenu
+        from main import menu_list
 
-        precious_pepperoni = PizzaMenu("Precious Pepperoni", "Delicious pepperoni pizza", 21.00)
-        supreme_chicken_of_gondor = PizzaMenu("Supreme Chicken of Gondor ", "", 23.50)
-        bag_end_bbq_meatlovers = PizzaMenu("Bag-End BBQ Meatlovers", "", 25.50)
-        fellowship_of_the_four_cheeses = PizzaMenu("Fellowship of the Four Cheeses", "", 22.50)
-        bree_ham_and_pineapple = PizzaMenu("Bree Ham & Pineapple", "", 19.00)
-        leaf_of_lorien_margherita = PizzaMenu("Leaf of Lorien Margherita", "", 18.50)
+        # precious_pepperoni = PizzaMenu("Precious Pepperoni", "Delicious pepperoni pizza", 21.00)
+        # supreme_chicken_of_gondor = PizzaMenu("Supreme Chicken of Gondor ", "", 23.50)
+        # bag_end_bbq_meatlovers = PizzaMenu("Bag-End BBQ Meatlovers", "", 25.50)
+        # fellowship_of_the_four_cheeses = PizzaMenu("Fellowship of the Four Cheeses", "", 22.50)
+        # bree_ham_and_pineapple = PizzaMenu("Bree Ham & Pineapple", "", 19.00)
+        # leaf_of_lorien_margherita = PizzaMenu("Leaf of Lorien Margherita", "", 18.50)
 
-        menu_list = [
-            precious_pepperoni,
-            supreme_chicken_of_gondor,
-            bag_end_bbq_meatlovers,
-            fellowship_of_the_four_cheeses,
-            bree_ham_and_pineapple,
-            leaf_of_lorien_margherita,
-        ]
+        # menu_list = [
+        #     precious_pepperoni,
+        #     supreme_chicken_of_gondor,
+        #     bag_end_bbq_meatlovers,
+        #     fellowship_of_the_four_cheeses,
+        #     bree_ham_and_pineapple,
+        #     leaf_of_lorien_margherita,
+        # ]
 
         # create a list of order receipts
         # order receipts = [[{name: [price, amount]}, ...], ...]
