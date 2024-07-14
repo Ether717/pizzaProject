@@ -16,8 +16,11 @@ class UiMenu:
 
     def get_yes_no_input(self, prompt: str) -> bool:
         """Prompts the user with a yes/no question and returns True if they choose 'yes', False otherwise"""
+
         while True:
-            user_input = input(f"{prompt} (yes/no): ").strip().lower()
+            user_input = (
+                input(f"{prompt} (yes/no): ").strip().lower()
+            )  # used llm to help with this part, as ive never used strip before
             if user_input == "yes":
                 return True
             elif user_input == "no":
@@ -57,7 +60,7 @@ class UiMenu:
         """Prompts the user to continue ordering"""
         return self.get_yes_no_input("Do you want to add more items?")
 
-    def choose_amount(self) -> int:
+    def get_quantity(self) -> int:
         """Prompts the user to enter the quantity of the chosen menu item and returns the quantity"""
 
         while True:
@@ -75,14 +78,17 @@ class UiMenu:
 
         print("Thank you for your order!")
 
-    def check_loyalty_member(self) -> bool:
+    def get_loyalty_member(self) -> bool:
         """Prompts the user to enter if they are a loyalty member"""
+
         return self.get_yes_no_input("Are you a loyalty member?")
 
-    def check_delivery_option(self) -> bool:
+    def get_delivery_option(self) -> bool:
         """Prompts the user to enter if they want delivery"""
+
         return self.get_yes_no_input("Do you want delivery?")
 
-    def another_order(self) -> bool:
+    def get_another_order(self) -> bool:
         """Prompts the user to enter if they want to make another order"""
+
         return self.get_yes_no_input("Do you want to make another order?")
