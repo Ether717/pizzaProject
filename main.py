@@ -43,13 +43,14 @@ def main():
     ui_menu = UiMenu(menu_list)
 
     while True:
+        
         process_menu.clear_item_dictionary()
 
         while True:
             print()
             ui_menu.display_menu()
             choice = ui_menu.get_user_choice()
-            amount = ui_menu.choose_amount()
+            amount = ui_menu.get_quantity()
             process_menu.add_to_item_dictionary(choice, amount)
 
             # Ask if the user wants to continue ordering
@@ -62,8 +63,8 @@ def main():
 
         print()
 
-        member = ui_menu.check_loyalty_member()
-        delivery = ui_menu.check_delivery_option()
+        member = ui_menu.get_loyalty_member()
+        delivery = ui_menu.get_delivery_option()
 
         total_cost_plus_discount_and_fees = process_menu.apply_discounts_and_fees(total_cost, member, delivery)
         total_cost_plus_gst = process_menu.apply_gst(total_cost_plus_discount_and_fees)
@@ -75,7 +76,7 @@ def main():
         order_receipts.append(process_menu.item_dict.copy())
 
         # Ask if the user wants to process another order
-        another_order = ui_menu.another_order()
+        another_order = ui_menu.get_another_order()
         if not another_order:
             break
 
