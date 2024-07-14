@@ -26,6 +26,7 @@ class TestProcessOrder(unittest.TestCase):
 
     def test_add_to_item_dictionary(self):
         """Test adding items to the item dictionary"""
+
         menu_index = 0
         amount = 1
         self.process_order.add_to_item_dictionary(menu_index, amount)
@@ -60,6 +61,7 @@ class TestProcessOrder(unittest.TestCase):
 
     def test_add_to_item_dictionary_new_and_existing(self):
         """Test adding new and existing items to the item dictionary"""
+
         # Clear the dictionary before starting the test
         self.process_order.clear_item_dictionary()
 
@@ -81,6 +83,9 @@ class TestProcessOrder(unittest.TestCase):
 
     def test_apply_discounts_and_fees(self):
         """Test applying discounts and fees based on various conditions"""
+
+        # used llm to refactor and fix this code as i didn't understand that i needed to use assertAlmostEqual for floating point numbers
+        # and also didn't know how to to set it to 2 decimal places, so llm Implemented places=2
 
         # Test case 1: No discount, no delivery
         total = self.process_order.apply_discounts_and_fees(50.00, False, False)
