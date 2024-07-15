@@ -25,16 +25,16 @@ class TestProcessOrder(unittest.TestCase):
         self.assertEqual(price, 10.99)
         self.assertEqual(name, "Pepperoni Pizza")
 
-    def test_add_to_item_dictionary(self):
+    def test_add_item_to_order(self):
         """Test adding items to the item dictionary"""
 
         menu_index = 0
         amount = 1
-        self.process_order.add_to_item_dictionary(menu_index, amount)
+        self.process_order.add_item_to_order(menu_index, amount)
 
         menu_index = 1
         amount = 2
-        self.process_order.add_to_item_dictionary(menu_index, amount)
+        self.process_order.add_item_to_order(menu_index, amount)
 
         self.assertEqual(
             self.process_order.item_dict,
@@ -48,8 +48,8 @@ class TestProcessOrder(unittest.TestCase):
         self.process_order.clear_item_dictionary()
 
         # Adding items to the dictionary
-        self.process_order.add_to_item_dictionary(0)
-        self.process_order.add_to_item_dictionary(1, 3)
+        self.process_order.add_item_to_order(0)
+        self.process_order.add_item_to_order(1, 3)
 
         # Calculating the total cost
         total_cost = self.process_order.calculate_total_cost_with_amount(self.process_order.item_dict, 0)
@@ -67,17 +67,17 @@ class TestProcessOrder(unittest.TestCase):
         self.process_order.clear_item_dictionary()
 
         # Test adding a new item
-        result = self.process_order.add_to_item_dictionary(0, 2)
+        result = self.process_order.add_item_to_order(0, 2)
         self.assertEqual(result, {"Pepperoni Pizza": [10.99, 2]})
         self.assertEqual(self.process_order.item_dict, {"Pepperoni Pizza": [10.99, 2]})
 
         # Test adding more of an existing item
-        result = self.process_order.add_to_item_dictionary(0, 3)
+        result = self.process_order.add_item_to_order(0, 3)
         self.assertEqual(result, {"Pepperoni Pizza": [10.99, 5]})
         self.assertEqual(self.process_order.item_dict, {"Pepperoni Pizza": [10.99, 5]})
 
         # Test adding a different item
-        result = self.process_order.add_to_item_dictionary(1, 2)
+        result = self.process_order.add_item_to_order(1, 2)
         expected_result = {"Pepperoni Pizza": [10.99, 5], "Hawaiian Pizza": [12.99, 2]}
         self.assertEqual(result, expected_result)
         self.assertEqual(self.process_order.item_dict, expected_result)
@@ -152,30 +152,29 @@ class TestUi(unittest.TestCase):
 
     def test_get_yes_no_input(self):
         """Test getting yes/no input from the user"""
-        
-        
-        
-        # # ui.get_yes_no_input, takes a prompt and outputs a bool value 
-        
+
+        # # ui.get_yes_no_input, takes a prompt and outputs a bool value
+
         # # learned how to test for exceptions in using assertRaises from this link:
         # # link - https://www.youtube.com/watch?v=cdxRMjYDrmg
-        
+
         # # 1. Test case: Valid yes input
         # self.assertTrue(self.ui.get_yes_no_input("yes"), "Should return True for 'yes'")
-        
+
         # # 2. Test case: Valid no input
         # self.assertFalse(self.ui.get_yes_no_input("no"), "Should return False for 'no'")
-        
+
         # # 3. Test case: Valid yes input in uppercase
         # self.assertTrue(self.ui.get_yes_no_input("YES"), "Should return True for 'YES'")
-        
+
         # # # 4. Test case: Invalid input
         # # with self.assertRaises(ValueError, msg="Should raise ValueError for invalid input"):
         # #     self.ui.get_yes_no_input("maybe")
-        
+
         # # # 5. Test case: Empty input
         # # with self.assertRaises(ValueError, msg="Should raise ValueError for empty input"):
         # #     self.ui.get_yes_no_input("")
+
 
 if __name__ == "__main__":
     unittest.main()
