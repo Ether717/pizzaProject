@@ -19,11 +19,11 @@ def create_menu_list():
 def example_menu_list():
     """ " this is an example of how you could expand on the code with easy modularity to add different classes"""
     return [
-    PizzaMenu("Precious Pepperoni", "Delicious pepperoni pizza", 21.00),
-    PizzaMenu("Supreme Chicken of Gondor ", "", 23.50),
-    DrinksMenu("Hot Coffee", "", 7.50),
-    DrinksMenu("Beer", "", 10.00),
-]
+        PizzaMenu("Precious Pepperoni", "Delicious pepperoni pizza", 21.00),
+        PizzaMenu("Supreme Chicken of Gondor ", "", 23.50),
+        DrinksMenu("Hot Coffee", "", 7.50),
+        DrinksMenu("Beer", "", 10.00),
+    ]
 
 
 menu_list = create_menu_list()
@@ -70,11 +70,12 @@ def main():
         another_order = ui_menu.get_another_order()
         if not another_order:
             break
-    
+
     # Create and print daily summary
     summary = Summary(order_receipts, menu_list)
     summary.create_daily_summary()
     summary.print_daily_summary()
+
 
 if __name__ == "__main__":
     main()
