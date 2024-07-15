@@ -6,32 +6,24 @@ from summary_class import Summary
 
 
 def create_menu_list():
-    precious_pepperoni = PizzaMenu("Precious Pepperoni", "Delicious pepperoni pizza", 21.00)
-    supreme_chicken_of_gondor = PizzaMenu("Supreme Chicken of Gondor ", "", 23.50)
-    bag_end_bbq_meatlovers = PizzaMenu("Bag-End BBQ Meatlovers", "", 25.50)
-    fellowship_of_the_four_cheeses = PizzaMenu("Fellowship of the Four Cheeses", "", 22.50)
-    bree_ham_and_pineapple = PizzaMenu("Bree Ham & Pineapple", "", 19.00)
-    leaf_of_lorien_margherita = PizzaMenu("Leaf of Lorien Margherita", "", 18.50)
-
     return [
-        precious_pepperoni,
-        supreme_chicken_of_gondor,
-        bag_end_bbq_meatlovers,
-        fellowship_of_the_four_cheeses,
-        bree_ham_and_pineapple,
-        leaf_of_lorien_margherita,
+        PizzaMenu("Precious Pepperoni", "Delicious pepperoni pizza", 21.00),
+        PizzaMenu("Supreme Chicken of Gondor", "", 23.50),
+        PizzaMenu("Bag-End BBQ Meatlovers", "", 25.50),
+        PizzaMenu("Fellowship of the Four Cheeses", "", 22.50),
+        PizzaMenu("Bree Ham & Pineapple", "", 19.00),
+        PizzaMenu("Leaf of Lorien Margherita", "", 18.50),
     ]
 
 
 def example_menu_list():
     """ " this is an example of how you could expand on the code with easy modularity to add different classes"""
-    precious_pepperoni = PizzaMenu("Precious Pepperoni", "Delicious pepperoni pizza", 21.00)
-    supreme_chicken_of_gondor = PizzaMenu("Supreme Chicken of Gondor ", "", 23.50)
-
-    coffee = DrinksMenu("Hot Coffee", "", 7.50)
-    beer = DrinksMenu("Beer", "", 10.00)
-
-    return [precious_pepperoni, supreme_chicken_of_gondor, coffee, beer]
+    return [
+    PizzaMenu("Precious Pepperoni", "Delicious pepperoni pizza", 21.00),
+    PizzaMenu("Supreme Chicken of Gondor ", "", 23.50),
+    DrinksMenu("Hot Coffee", "", 7.50),
+    DrinksMenu("Beer", "", 10.00),
+]
 
 
 menu_list = create_menu_list()
@@ -50,7 +42,7 @@ def main():
             ui_menu.display_menu()
             choice = ui_menu.get_user_choice()
             amount = ui_menu.get_quantity()
-            process_menu.add_to_item_dictionary(choice, amount)
+            process_menu.add_item_to_order(choice, amount)
 
             # Ask if the user wants to continue ordering
             continue_order = ui_menu.continue_order()
@@ -78,11 +70,11 @@ def main():
         another_order = ui_menu.get_another_order()
         if not another_order:
             break
-
+    
+    # Create and print daily summary
     summary = Summary(order_receipts, menu_list)
     summary.create_daily_summary()
     summary.print_daily_summary()
-
 
 if __name__ == "__main__":
     main()
