@@ -43,7 +43,6 @@ def main():
     ui_menu = UiMenu(menu_list)
 
     while True:
-        
         process_menu.clear_item_dictionary()
 
         while True:

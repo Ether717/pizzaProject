@@ -1,4 +1,4 @@
-# these libs are used for the GUI and automation/testing and are not required for the main code
+# these libs are used for the Draft GUI and automation/testing and are not required for the main code
 astroid==3.2.3
 contourpy==1.2.1
 coverage==7.6.0

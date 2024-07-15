@@ -8,7 +8,7 @@ class Summary:
 
     def create_daily_summary(self):
         """Creates the daily summary by aggregating all orders"""
-        
+
         # Initialize daily_summary with all menu items set to 0
         for menu_item in self.menu_list:
             self.daily_summary[menu_item.name] = 0
@@ -24,7 +24,7 @@ class Summary:
 
     def print_daily_summary(self):
         """prints the daily summary"""
-        
+
         for name, quantity in self.daily_summary.items():
             print(f"{name}: {quantity}")
 
