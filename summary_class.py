@@ -10,17 +10,17 @@ class Summary:
         """Creates the daily summary by aggregating all orders"""
 
         # Initialize daily_summary with all menu items set to 0
-        for menu_item in self.menu_list:
-            self.daily_summary[menu_item.name] = 0
+        for item in self.menu_list:
+            self.daily_summary[item.name] = 0
 
         # Iterate through all order receipts
         for order in self.order_receipt_list:
-            for pizza_name, [_, quantity] in order.items():
-                if pizza_name in self.daily_summary:
-                    self.daily_summary[pizza_name] += quantity
+            for product_name, [_, quantity] in order.items():
+                if product_name in self.daily_summary:
+                    self.daily_summary[product_name] += quantity
                 else:
-                    # Handle case where pizza is not in menu but was ordered
-                    self.daily_summary[pizza_name] = quantity
+                    # Handle case where product is not in menu but was ordered
+                    self.daily_summary[product_name] = quantity
 
     def print_daily_summary(self):
         """prints the daily summary"""
