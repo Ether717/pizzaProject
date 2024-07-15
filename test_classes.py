@@ -5,6 +5,7 @@ import unittest
 from menu_class import PizzaMenu
 from process_order_class import ProcessOrder
 from ui_class import UiMenu
+from summary_class import Summary
 
 
 class TestProcessOrder(unittest.TestCase):
@@ -174,6 +175,31 @@ class TestUi(unittest.TestCase):
         # # # 5. Test case: Empty input
         # # with self.assertRaises(ValueError, msg="Should raise ValueError for empty input"):
         # #     self.ui.get_yes_no_input("")
+
+
+class TestSummary(unittest.TestCase):
+    """Test the Summary class"""
+
+    from main import menu_list
+
+    sample_data = [
+        {"Precious Pepperoni": [21.00, 2], "Bree Ham & Pineapple": [19.00, 1]},
+        {"Fellowship of the Four Cheeses": [22.50, 3], "Leaf of Lorien Margherita": [18.50, 2]},
+        {"Bag-End BBQ Meatlovers": [25.50, 1], "Supreme Chicken of Gondor": [23.50, 2]},
+        {"Precious Pepperoni": [21.00, 1], "Fellowship of the Four Cheeses": [22.50, 1]},
+    ]
+
+    sample_data_2 = [
+        {"Precious Pepperoni": [21.00, 1], "Bree Ham & Pineapple": [19.00, 1]},
+        {"Fellowship of the Four Cheeses": [22.50, 3], "Leaf of Lorien Margherita": [18.50, 2]},
+    ]
+
+    order_receipts = [sample_data, sample_data_2]
+
+    Summary = Summary(order_receipts, menu_list)
+
+    def test_create_daily_summary(self):
+        """Test the create_daily_summary method"""
 
 
 if __name__ == "__main__":
