@@ -180,6 +180,7 @@ class TestUi(unittest.TestCase):
 class TestSummary(unittest.TestCase):
     """Test the Summary class"""
 
+    # set up
     from main import menu_list
 
     sample_data = [
