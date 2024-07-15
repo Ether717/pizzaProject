@@ -2,7 +2,7 @@
 
 
 class ProcessOrder:
-    """ """
+    """This class is used to process orders."""
 
     # Initializes
     def __init__(self, menu_items: list):
@@ -24,7 +24,7 @@ class ProcessOrder:
     def add_item_to_order(self, menu_item_index: int, amount: int = 1) -> dict:
         """Adds the item at the given index to the dictionary with the specified amount"""
 
-        # dict = {name: (price, amount)}
+        # dict = {name: [price, amount]}
         name = self.get_item_name(menu_item_index)
         price = self.get_item_price(menu_item_index)
 
@@ -35,7 +35,7 @@ class ProcessOrder:
             self.item_dict[name] = [price, amount]
         return self.item_dict
 
-    def calculate_total_cost(self, dictionary, current_total: float) -> float:
+    def calculate_total_cost(self, dictionary, current_total: float) -> float:  # Legacy code, used for debugging now
         """Calculates the total cost of all items in the dictionary"""
 
         for value in dictionary.values():
