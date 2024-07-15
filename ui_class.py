@@ -44,22 +44,6 @@ class UiMenu:
                 # handle the case where the input is not a valid integer
                 print("Invalid input. Please enter a number.")
 
-    def display_order_summary(self, order_dict):
-        """Displays the order summary with the names, prices, and quantities of the ordered items"""
-
-        print("\nOrder Summary:")
-        for name, (price, quantity) in order_dict.items():
-            print(f"{name} - ${price:.2f} x {quantity}")
-
-    def display_total_cost(self, total_cost):
-        """Displays the total cost of the order"""
-
-        print(f"\nTotal Cost: ${total_cost:.2f}")
-
-    def continue_order(self) -> bool:
-        """Prompts the user to continue ordering"""
-        return self.get_yes_no_input("Do you want to add more items?")
-
     def get_quantity(self) -> int:
         """Prompts the user to enter the quantity of the chosen menu item and returns the quantity"""
 
@@ -73,10 +57,26 @@ class UiMenu:
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
+    def display_total_cost(self, total_cost):
+        """Displays the total cost of the order"""
+
+        print(f"\nTotal Cost: ${total_cost:.2f}")
+
+    def display_order_summary(self, order_dict):
+        """Displays the order summary with the names, prices, and quantities of the ordered items"""
+
+        print("\nOrder Summary:")
+        for name, (price, quantity) in order_dict.items():
+            print(f"{name} - ${price:.2f} x {quantity}")
+
     def display_thank_you_message(self):
         """Displays a thank you message to the user"""
 
         print("Thank you for your order!")
+
+    def continue_order(self) -> bool:
+        """Prompts the user to continue ordering"""
+        return self.get_yes_no_input("Do you want to add more items?")
 
     def get_loyalty_member(self) -> bool:
         """Prompts the user to enter if they are a loyalty member"""
