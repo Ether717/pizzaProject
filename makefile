@@ -32,7 +32,6 @@ clean: # cleans temporary files
 
 # combined commands 
 
-check: format mypy unittest  # does a quick check of code using linting, formatting, type checking, and unit testing
+check: format mypy ruff unittest  # does a quick check of code using linting, formatting, type checking, and unit testing
 
 full: format mypy pytest ruff pylint # does a full check of code using linting, formatting, type checking, and unit testing
-
