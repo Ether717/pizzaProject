@@ -135,31 +135,47 @@ class TestProcessOrder(unittest.TestCase):
         total = self.process_order.apply_gst(0.99)
         self.assertAlmostEqual(total, 1.09, places=2)
 
+
 class TestUi(unittest.TestCase):
     """Test the UI class"""
+
     # its hard to use the unittest framework to test the UI as it doesn't have any complex logic.
     # It's mainly responsible for displaying information to the user and getting input from the user.
-    
-    
-    # setup 
+
+    # setup
     pepperoni = PizzaMenu("Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
     hawaiian = PizzaMenu("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
 
     menu_list = [pepperoni, hawaiian]
-    
+
     ui = UiMenu(menu_list)
-    
+
     def test_get_yes_no_input(self):
         """Test getting yes/no input from the user"""
-    
-    prompt_1 = "yes" # test prompt for valid yes input
-    prompt_2 = "no"
-    prompt_3 = ""
-    prompt_4 = "YES"
-    
-    
-     
-
+        
+        
+        
+        # # ui.get_yes_no_input, takes a prompt and outputs a bool value 
+        
+        # # learned how to test for exceptions in using assertRaises from this link:
+        # # link - https://www.youtube.com/watch?v=cdxRMjYDrmg
+        
+        # # 1. Test case: Valid yes input
+        # self.assertTrue(self.ui.get_yes_no_input("yes"), "Should return True for 'yes'")
+        
+        # # 2. Test case: Valid no input
+        # self.assertFalse(self.ui.get_yes_no_input("no"), "Should return False for 'no'")
+        
+        # # 3. Test case: Valid yes input in uppercase
+        # self.assertTrue(self.ui.get_yes_no_input("YES"), "Should return True for 'YES'")
+        
+        # # # 4. Test case: Invalid input
+        # # with self.assertRaises(ValueError, msg="Should raise ValueError for invalid input"):
+        # #     self.ui.get_yes_no_input("maybe")
+        
+        # # # 5. Test case: Empty input
+        # # with self.assertRaises(ValueError, msg="Should raise ValueError for empty input"):
+        # #     self.ui.get_yes_no_input("")
 
 if __name__ == "__main__":
     unittest.main()
