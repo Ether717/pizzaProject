@@ -14,8 +14,9 @@ class Summary:
             self.daily_summary[item.name] = 0
 
         # Iterate through all order receipts
-        for order in self.order_receipt_list:
-            for product_name, [_, quantity] in order.items():
+        for order in self.order_receipt_list:  # 1 order = 1 dictionary
+            for product_name, [_, quantity] in order.items():  # 1 product = 1 key-value pair
+                # Add the quantity to the daily summary for the corresponding product name
                 if product_name in self.daily_summary:
                     self.daily_summary[product_name] += quantity
                 else:
@@ -25,6 +26,7 @@ class Summary:
     def print_daily_summary(self):
         """prints the daily summary"""
 
+        print("\nDaily Summary:")
         for name, quantity in self.daily_summary.items():
             print(f"{name}: {quantity}")
 
@@ -35,6 +37,7 @@ if __name__ == "__main__":
         # create a list of menu items
         from main import menu_list
 
+        ## old code before main menu_list was implemented
         # precious_pepperoni = PizzaMenu("Precious Pepperoni", "Delicious pepperoni pizza", 21.00)
         # supreme_chicken_of_gondor = PizzaMenu("Supreme Chicken of Gondor ", "", 23.50)
         # bag_end_bbq_meatlovers = PizzaMenu("Bag-End BBQ Meatlovers", "", 25.50)
