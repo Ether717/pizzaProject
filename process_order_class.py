@@ -21,7 +21,7 @@ class ProcessOrder:
         chosen_item = self.menu_items[menu_item_index]
         return chosen_item.name
 
-    def add_to_item_dictionary(self, menu_item_index: int, amount: int = 1) -> dict:
+    def add_item_to_order(self, menu_item_index: int, amount: int = 1) -> dict:
         """Adds the item at the given index to the dictionary with the specified amount"""
 
         # dict = {name: (price, amount)}
@@ -97,13 +97,13 @@ if __name__ == "__main__":
         process_menu = ProcessOrder(menu_list)
 
         # adding single item to the dictionary
-        process_menu.add_to_item_dictionary(0)
+        process_menu.add_item_to_order(0)
 
         # adding multiple of the same items to the dictionary
-        process_menu.add_to_item_dictionary(1, 3)
+        process_menu.add_item_to_order(1, 3)
 
         # checking if the dictionary is updated correctly
-        process_menu.add_to_item_dictionary(1, 2)
+        process_menu.add_item_to_order(1, 2)
 
         print()
         process_menu.print_item_dictionary(process_menu.item_dict)
