@@ -4,6 +4,7 @@
 import unittest
 from menu_class import PizzaMenu
 from process_order_class import ProcessOrder
+from ui_class import UiMenu
 
 
 class TestProcessOrder(unittest.TestCase):
@@ -133,6 +134,31 @@ class TestProcessOrder(unittest.TestCase):
         # Test case 5: Apply GST to a small decimal
         total = self.process_order.apply_gst(0.99)
         self.assertAlmostEqual(total, 1.09, places=2)
+
+class TestUi(unittest.TestCase):
+    """Test the UI class"""
+    # its hard to use the unittest framework to test the UI as it doesn't have any complex logic.
+    # It's mainly responsible for displaying information to the user and getting input from the user.
+    
+    
+    # setup 
+    pepperoni = PizzaMenu("Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
+    hawaiian = PizzaMenu("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
+
+    menu_list = [pepperoni, hawaiian]
+    
+    ui = UiMenu(menu_list)
+    
+    def test_get_yes_no_input(self):
+        """Test getting yes/no input from the user"""
+    
+    prompt_1 = "yes" # test prompt for valid yes input
+    prompt_2 = "no"
+    prompt_3 = ""
+    prompt_4 = "YES"
+    
+    
+     
 
 
 if __name__ == "__main__":
