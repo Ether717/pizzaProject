@@ -28,13 +28,13 @@ class DrinksMenu(PizzaMenu):
     # Methods
 
     def check_if_caffeinated(self):
-        """Check if the drink is caffeinated"""
+        """STUB: Check if the drink is caffeinated"""
 
     def check_if_alcoholic(self):
-        """Check if the drink is alcoholic"""
+        """STUB: Check if the drink is alcoholic"""
 
 
-# Create menu items for Debugging
+## Create menu items for Debugging
 # pepperoni = PizzaMenu("Pepperoni Pizza", "Delicious pepperoni pizza", 10.99)
 # hawaiian = PizzaMenu("Hawaiian Pizza", "Sweet and savory Hawaiian pizza", 12.99)
 
