@@ -5,28 +5,28 @@ class ProcessOrder:
     """This class is used to process orders."""
 
     # Initializes
-    def __init__(self, menu_items: list):
-        self.menu_items = menu_items
+    def __init__(self, order_items: list):
+        self.order_items = order_items
         self.item_dict: dict = {}
 
-    def get_item_price(self, menu_item_index: int) -> float:
+    def get_item_price(self, item_index: int) -> float:
         """Gets the price of the item at the given index in the menu"""
 
-        chosen_item = self.menu_items[menu_item_index]
+        chosen_item = self.order_items[item_index]
         return chosen_item.cost
 
-    def get_item_name(self, menu_item_index: int) -> str:
+    def get_item_name(self, item_index: int) -> str:
         """Gets the name of the item at the given index in the menu"""
 
-        chosen_item = self.menu_items[menu_item_index]
+        chosen_item = self.order_items[item_index]
         return chosen_item.name
 
-    def add_item_to_order(self, menu_item_index: int, amount: int = 1) -> dict:
+    def add_item_to_order(self, item_index: int, amount: int = 1) -> dict:
         """Adds the item at the given index to the dictionary with the specified amount"""
 
         # dict = {name: [price, amount]}
-        name = self.get_item_name(menu_item_index)
-        price = self.get_item_price(menu_item_index)
+        name = self.get_item_name(item_index)
+        price = self.get_item_price(item_index)
 
         if name in self.item_dict:
             # Adds the amount to the existing item in the dictionary.
