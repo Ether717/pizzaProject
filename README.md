@@ -17,7 +17,7 @@ This project implements a pizza ordering system with menu management, order proc
 - `ui_class.py`: handles user interface through CLI
 - `test_classes.py`: Contains unit tests for the project
 
-- `makefile`: contains all the commands i sued for automation in the project for dev
+- `makefile`: contains all the commands i used for automation in the project for dev
 - `archive folder`: contains old unused code
 - `draft folder`: contains ideas of code not fully implemented
 
