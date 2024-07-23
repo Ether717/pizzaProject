@@ -3,7 +3,7 @@ mypy: # check for type errors
 unittest: # does a quick unit test
 	python3 -m unittest test_classes.py
 pytest: # tests using pytest
-	pytest test_classes.py
+	pytest test_classes.py 
 run: # runs program from main 
 	python3 main.py
 format: # formats using black
@@ -11,7 +11,7 @@ format: # formats using black
 pylint: # checks for errors and bad practices
 	pylint --disable=C0116,C0114,C0301,W0611,C0303,E0602,W0612,C0413,C0305,C0415 main.py menu_class.py process_order_class.py summary_class.py test_classes.py ui_class.py
 ruff: # checks for errors and bad practices
-	ruff check main.py menu_class.py process_order_class.py summary_class.py test_classes.py ui_class.py
+	ruff check --fix main.py menu_class.py process_order_class.py summary_class.py test_classes.py ui_class.py
 coverage: # checks code coverage
 	coverage run -m unittest discover
 	coverage report

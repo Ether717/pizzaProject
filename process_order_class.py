@@ -109,10 +109,7 @@ if __name__ == "__main__":
         process_menu.print_item_dictionary(process_menu.item_dict)
         print()
 
-        print(
-            f"total cost: ${process_menu.calculate_total_cost_with_amount(
-                process_menu.item_dict, current_total)}"
-        )
+        print(f"total cost: ${process_menu.calculate_total_cost_with_amount(process_menu.item_dict, current_total)}")
 
         manual_total_cost = 10.99 + (12.99 * 5)
         print(f"manual_total_cost: ${manual_total_cost}")
